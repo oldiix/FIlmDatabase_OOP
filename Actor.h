@@ -9,9 +9,12 @@ class Actor
     string name;
     int age;
     int filmsIn;
+
     public:
     Actor();
     Actor(string n, int a, int m);
+    Actor(const Actor& other);
+    Actor(Actor&& other) noexcept;
     ~Actor();
 
     string getName() const;

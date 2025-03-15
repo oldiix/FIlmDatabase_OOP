@@ -10,12 +10,16 @@ private:
     string title;
     string genre;
     int releaseYear;
+
 public:
     Film();
     Film(string t, string g, int y);
+    Film(const Film& other);
+    Film(Film&& other) noexcept ;
     ~Film();
-    [[nodiscard]]
-    string getTitle() const;
+
+
+    [[nodiscard]] string getTitle() const;
     [[nodiscard]] string getGenre() const;
     [[nodiscard]] int getReleaseYear() const;
 

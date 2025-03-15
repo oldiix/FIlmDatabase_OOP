@@ -9,9 +9,12 @@ class Director {
  string name;
  int age;
  int filmsDirected;
+
  public:
  Director();
  Director(string n, int a, int f);
+ Director(const Director& other);
+ Director(Director&& other) noexcept;
  ~Director();
 
  string getName() const;
