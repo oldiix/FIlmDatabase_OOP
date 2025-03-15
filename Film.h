@@ -2,6 +2,7 @@
 #define FILM_H
 
 #include <string>
+#include <iostream>
 using namespace std;
 
 class Film
@@ -28,6 +29,9 @@ public:
     void setTitle(string t);
     void setGenre(string g);
     void setReleaseYear(int y);
+
+    bool operator==(const Film& other) const;
+    friend std::ostream& operator<<(std::ostream& os, const Film& film);
 };
 
 #endif
