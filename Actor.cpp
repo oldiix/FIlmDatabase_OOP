@@ -3,6 +3,15 @@
 
 Actor::Actor() : Actor("default", 0, 0) {}
 Actor::Actor(string n, int a, int m) : name(n), age(a), filmsIn(m) {}
+
+Actor::Actor(const Actor& other) : name(other.name), age(other.age), filmsIn(other.filmsIn) {}
+
+Actor::Actor(Actor&& other) noexcept : name(std::move(other.name)), age(std::move(other.age)), filmsIn(std::move(other.filmsIn))
+{
+    other.name = "default";
+    other.age = 0;
+    other.filmsIn = 0;
+}
 Actor::~Actor() {}
 
 string Actor::getName() const { return name; }
