@@ -10,6 +10,7 @@ private:
     string title;
     string genre;
     int releaseYear;
+    static int numFilms;
 
 public:
     Film();
@@ -22,6 +23,7 @@ public:
     [[nodiscard]] string getTitle() const;
     [[nodiscard]] string getGenre() const;
     [[nodiscard]] int getReleaseYear() const;
+    static int getNumFilms();
 
     void setTitle(string t);
     void setGenre(string g);
