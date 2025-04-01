@@ -2,29 +2,23 @@
 #define DIRECTOR_H
 
 #include <string>
-using namespace std;
+#include "Person.h"
 
-class Director {
- private:
- string name;
- int age;
+class Director : public Person {
+ public:
  int filmsDirected;
 
- public:
  Director();
- Director(string n, int a, int f);
+ Director(const std::string& nm, int a, const std::string& n, int fd);
  Director(const Director& other);
  Director(Director&& other) noexcept;
  ~Director();
 
- string getName() const;
- int getAge() const;
- int getFilmsDirected() const;
+ Director& operator=(const Director& other) = default;
+ Director& operator=(Director&& other) noexcept = default;
 
- void setName(string n);
- void setAge(int a);
- void setFilmsDirected(int f);
-
+ [[nodiscard]] int getFilmsDirected() const;
+ void setFilmsDirected(int fd);
 };
 
-#endif //DIRECTOR_H
+#endif
