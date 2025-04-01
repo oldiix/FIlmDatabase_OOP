@@ -2,28 +2,26 @@
 #define ACTOR_H
 
 #include <string>
-using namespace std;
-class Actor
+
+#include "Person.h"
+class Actor:public Person
 {
     public:
-    string name;
-    int age;
     int filmsIn;
 
-    public:
     Actor();
-    Actor(string n, int a, int m);
+    Actor(const std::string& nm, int a, const std::string& n, int f);
     Actor(const Actor& other);
     Actor(Actor&& other) noexcept;
+
+    Actor& operator=(const Actor& other) = default;
+    Actor& operator=(Actor&& other) noexcept = default;
+
+    [[nodiscard]] int getfilmsIn() const;
+    void setfilmsIn(int f);
+
     ~Actor();
 
-    string getName() const;
-    int getAge() const;
-    int getfilmsIn() const;
-
-    void setName(string n);
-    void setAge(int a);
-    void setfilmssIn(int m);
 };
 
 #endif
