@@ -20,6 +20,9 @@ public:
 
     void setComment(const std::string& comment);
     void setRating(int rating);
+
+    void finalMethod() const;
+    static void demonstrateFinal();
 };
 
 #endif // REVIEW_H
