@@ -1,4 +1,6 @@
 #include "Actor.h"
+#include <iostream>
+#include <ostream>
 #include "Person.h"
 
 Actor::Actor() : Person(), filmsIn(0) {}
@@ -17,4 +19,16 @@ Actor::Actor(Actor&& other) noexcept
 int Actor::getfilmsIn() const { return filmsIn; }
 void Actor::setfilmsIn(int m) { filmsIn = m; }
 
-Actor::~Actor() = default;
+void Actor::displayInfo() const
+{
+    std::cout << "Actor: " << name << ", Age: " << age << ", Films acted in : " << filmsIn << std::endl;
+}
+
+void Actor::demonstrateBasePointer() {
+    std::cout << "Demonstrate base pointer" << std::endl;
+    Actor actor("Jake Gyllenhaal", 44, "American", 48);
+    Person* personPtr = &actor;
+
+    personPtr->displayInfo();
+    std::cout << "Info (role): " << personPtr->getRole() << std::endl;
+}
