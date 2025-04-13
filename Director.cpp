@@ -1,4 +1,8 @@
 #include "Director.h"
+
+#include <iostream>
+#include <ostream>
+
 #include "Person.h"
 
 Director::Director() : Person(), filmsDirected(0) {}
@@ -18,6 +22,25 @@ Director::Director(Director&& other) noexcept
 int Director::getFilmsDirected() const { return filmsDirected; }
 void Director::setFilmsDirected(int fd) { filmsDirected = fd; }
 
-Director::~Director() = default;
+void Director::displayInfo() const
+{
+    std::cout << "Director: " << name << " , Age: " << age << " , Films directed: " << filmsDirected << std::endl;
+}
+
+void Director::uniqueDirectorMethod()
+{
+    std::cout << "Example of method which can't be overriden\n";
+}
+
+void Director::demonstrateBaseReference() {
+    std::cout << "Demonstrate base reference" << std::endl;
+    Director director("Steven Spielberg", 75, "American", 50);
+    Person& personRef = director;
+
+    personRef.displayInfo();
+    std::cout << "Info (role): " << personRef.getRole() << std::endl;
+}
+
+
 
 
