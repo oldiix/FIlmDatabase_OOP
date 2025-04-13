@@ -1,4 +1,6 @@
 #include "Person.h"
+#include <iostream>
+#include <ostream>
 
 Person::Person() : name("default"), age(0), nationality("ukrainian") {}
 
@@ -17,3 +19,13 @@ std::string Person::getNationality() const { return nationality; }
 void Person::setName(const std::string& nm) { name = nm; }
 void Person::setAge(int a) { age = a; }
 void Person::setNationality(const std::string& n) { nationality = n; }
+
+void Person::staticMethod()
+{
+    std::cout << "Realization of static method from parent class (static binding).\n" << std::endl;
+}
+
+void Person::demonstrateStaticBinding() {
+    std::cout << "Demonstrate static binding" << std::endl;
+    staticMethod();
+}
