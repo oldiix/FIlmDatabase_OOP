@@ -5,7 +5,7 @@
 Person::Person() : name("default"), age(0), nationality("ukrainian") {}
 
 Person::Person(const std::string& nm, int a, const std::string& n)
-: name(nm), age(a), nationality(n) {}
+: name(n), age(a), nationality(n) {}
 
 Person::Person(const Person& other) : name(other.name), age(other.age), nationality(other.nationality) {}
 
@@ -20,12 +20,3 @@ void Person::setName(const std::string& nm) { name = nm; }
 void Person::setAge(int a) { age = a; }
 void Person::setNationality(const std::string& n) { nationality = n; }
 
-void Person::staticMethod()
-{
-    std::cout << "Realization of static method from parent class (static binding).\n" << std::endl;
-}
-
-void Person::demonstrateStaticBinding() {
-    std::cout << "Demonstrate static binding" << std::endl;
-    staticMethod();
-}

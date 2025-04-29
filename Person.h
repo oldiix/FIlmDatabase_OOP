@@ -29,8 +29,6 @@ public:
     virtual void displayInfo() const = 0;
     [[nodiscard]] virtual std::string getRole() const { return "Person"; }
 
-    static void staticMethod();
-    static void demonstrateStaticBinding();
 };
 
 #endif
