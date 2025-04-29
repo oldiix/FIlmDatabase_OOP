@@ -1,52 +1,20 @@
 #include "Review.h"
+#include <iomanip>
 
-#include <iostream>
-#include <ostream>
+Review::Review(const std::string& comment, int rating, const std::string& filmTitle)
+    : comment(comment), rating(rating), filmTitle(filmTitle) {}
 
-Review::Review() : comment(" "), rating(0) {}
+std::string Review::getComment() const { return comment; }
+int Review::getRating() const { return rating; }
+std::string Review::getFilmTitle() const { return filmTitle; }
 
-Review::Review(const std::string& comment, int rating)
-    : comment(comment), rating(rating) {}
+void Review::setComment(const std::string& comment) { this->comment = comment; }
+void Review::setRating(int rating) { this->rating = rating; }
+void Review::setFilmTitle(const std::string& filmTitle) { this->filmTitle = filmTitle; }
 
-Review::Review(const Review& other)
-    : comment(other.comment), rating(other.rating) {}
-
-Review::Review(Review&& other) noexcept
-    : comment(std::move(other.comment)), rating(other.rating) {
-    other.rating = 0;
-}
-
-Review& Review::operator=(const Review& other) {
-    if (this != &other) {
-        comment = other.comment;
-        rating = other.rating;
-    }
-    return *this;
-}
-
-std::string Review::getComment() const {
-    return comment;
-}
-
-int Review::getRating() const {
-    return rating;
-}
-
-void Review::setComment(const std::string& c) {
-    comment = c;
-}
-
-void Review::setRating(int r) {
-    rating = r;
-}
-
-void Review::demonstrateFinal() {
-    std::cout << "Demonstrating final method\n";
-    Review review("Test review", 5);
-    review.finalMethod();
-}
-
-void Review::finalMethod() const {
-    std::cout << "This method is in final class and can't be overridden\n";
-    std::cout << "Current review: " << comment << ", Rating: " << rating << "\n";
+void Review::displayInfo() const {
+    std::cout << "Film: " << filmTitle << "\n";
+    std::cout << "Rating: " << rating << "/10\n";
+    std::cout << "Comment: " << comment << "\n";
+    std::cout << "--------------------------\n";
 }
