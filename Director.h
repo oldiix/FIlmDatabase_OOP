@@ -12,7 +12,7 @@ class Director : public Person {
  Director(const std::string& nm, int a, const std::string& n, int fd);
  Director(const Director& other);
  Director(Director&& other) noexcept;
- ~Director() override = default;
+  ~Director() override = default;
 
  Director& operator=(const Director& other) = default;
  Director& operator=(Director&& other) noexcept = default;
@@ -23,7 +23,6 @@ class Director : public Person {
  void displayInfo() const override;
  [[nodiscard]] std::string getRole() const override { return "Director"; };
 
- virtual void uniqueDirectorMethod() final;
  static void demonstrateBaseReference();
 };
 

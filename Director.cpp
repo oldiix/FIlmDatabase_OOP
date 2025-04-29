@@ -1,8 +1,6 @@
 #include "Director.h"
-
 #include <iostream>
 #include <ostream>
-
 #include "Person.h"
 
 Director::Director() : Person(), filmsDirected(0) {}
@@ -25,11 +23,6 @@ void Director::setFilmsDirected(int fd) { filmsDirected = fd; }
 void Director::displayInfo() const
 {
     std::cout << "Director: " << name << " , Age: " << age << " , Films directed: " << filmsDirected << std::endl;
-}
-
-void Director::uniqueDirectorMethod()
-{
-    std::cout << "Example of method which can't be overriden\n";
 }
 
 void Director::demonstrateBaseReference() {

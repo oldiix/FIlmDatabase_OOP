@@ -13,7 +13,7 @@ class Actor:public Person
     Actor(const std::string& nm, int a, const std::string& n, int f);
     Actor(const Actor& other);
     Actor(Actor&& other) noexcept;
-    ~Actor() override = default;
+    virtual ~Actor() override = default;
 
     Actor& operator=(const Actor& other) = default;
     Actor& operator=(Actor&& other) noexcept = default;
@@ -25,6 +25,7 @@ class Actor:public Person
     [[nodiscard]] std::string getRole() const override { return "Actor"; }
 
     static void demonstrateBasePointer();
+
 };
 
 #endif
