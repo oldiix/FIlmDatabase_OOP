@@ -2,6 +2,7 @@
 #define FILM_H
 
 #include <string>
+#include <iostream>
 #include <vector>
 #include "Director.h"
 #include "Actor.h"
@@ -21,12 +22,20 @@ private:
 public:
     Film();
     Film(const std::string& t, const std::string& g, int y, const Director& d);
+    Film(const std::string& t, const std::string& g, int y)
+        : title(t), genre(g), releaseYear(y) {}
     Film(const Film& other);
     Film(Film&& other) noexcept;
     ~Film();
 
-    Film& operator=(const Film& other) = default;
-    Film& operator=(Film&& other) noexcept = default;
+    void displayInfo() const
+    {
+        std::cout << "Title: " << title << "\n";
+        std::cout << "Genre: " << genre << "\n";
+        std::cout << "Release Year: " << releaseYear << "\n";
+    }
+    Film& operator=(const Film& other);
+    Film& operator=(Film&& other) noexcept;
 
     [[nodiscard]] std::string getTitle() const;
     [[nodiscard]] std::string getGenre() const;
